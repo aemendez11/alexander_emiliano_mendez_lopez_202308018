@@ -332,6 +332,20 @@
   document.getElementById("btn-pausa").addEventListener("click", alternarPausa);
   document.getElementById("btn-ok").addEventListener("click", botonPrincipal);
 
+  const botonBorrarRecord = document.getElementById("btn-borrar-record");
+  botonBorrarRecord.addEventListener("keydown", (e) => {
+    if (e.code === "Enter" || e.code === "Space") e.stopPropagation();
+  });
+  botonBorrarRecord.addEventListener("click", () => {
+    const confirmado = window.confirm("¿Borrar la mejor marca?");
+    // El tiempo dentro de la confirmación no debe convertirse en movimientos.
+    if (estado === "jugando") anterior = performance.now();
+    if (!confirmado) return;
+    mejor = 0;
+    guardarRecord(0);
+    pintarDatos();
+  });
+
   // Deslizar sobre la pantalla, para jugar con el pulgar.
   let origen = null;
   pantalla.addEventListener("pointerdown", (e) => { origen = { x: e.clientX, y: e.clientY }; });

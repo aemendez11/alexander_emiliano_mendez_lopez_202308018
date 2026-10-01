@@ -299,6 +299,17 @@ body {
 
 .datos { margin: 0; display: grid; gap: 7px; }
 
+.ficha__boton {
+  justify-self: start;
+  padding: 8px 12px;
+  border: 1px solid var(--regla);
+  border-radius: 4px;
+  background: var(--suelo-veta);
+  color: var(--tinta-suelo);
+  font: inherit;
+  cursor: pointer;
+}
+
 .fila {
   display: flex;
   align-items: baseline;
