@@ -19,11 +19,14 @@
   Las reglas basadas en pasos deben contar movimientos, no frames.
 - Al comer, el nivel se actualiza antes de sumar `10 * nivel`: la quinta
   manzana ya puntúa con nivel 2.
+- La fruta visible es la número `manzanas + 1`: identificar si es dorada antes
+  de incrementar el contador. Los factores de dorada y racha se multiplican.
 - El récord usa la clave `viborita-lcd.mejor` de localStorage, se guarda al
-  perder y aparece tanto en `#record` como en `#d-mejor`. Si falla el
+  perder o al borrarlo y aparece tanto en `#record` como en `#d-mejor`. Si falla el
   almacenamiento, se conserva en memoria durante la sesión.
-- Enter y Espacio tienen manejadores globales. Los botones direccionales
-  detienen su propagación para evitar reiniciar o pausar accidentalmente.
+- Enter y Espacio tienen manejadores globales. Los botones direccionales y
+  el de borrar récord detienen su propagación; el de borrar conserva la
+  activación nativa y reajusta `anterior` al cerrar su confirmación.
 - El tema oscuro cambia solo la superficie exterior; la paleta del aparato
   permanece fija. El parpadeo respeta `prefers-reduced-motion`.
 
